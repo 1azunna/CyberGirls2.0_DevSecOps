@@ -51,9 +51,10 @@ func main() {
 		severity := jsonData.Vulnerabilities[i].Severity
 		cvss_score := jsonData.Vulnerabilities[i].CvssScore
 		output = append(output, []string{title, severity, fmt.Sprint(cvss_score)})
+		// table.Append([]string{title, severity, fmt.Sprint(cvss_score)}) // Alternatively, you can append data to the table when looping.
 	}
 
-	table.AppendBulk(output)                   // AppendBulk function helps append the output data which is a list of list of strings. Alternatively, you can append data to the table when looping.
+	table.AppendBulk(output)                   // AppendBulk function helps append the output data which is a list of list of strings.
 	table.SetAlignment(tablewriter.ALIGN_LEFT) // Set alignment for the table data to the left.
 	table.Render()                             // Print the output
 
